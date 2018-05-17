@@ -12,7 +12,7 @@ def findcenter(n1,n2,n3,n4,n5,n6,n7,n8,n9):
     temp =[[n1,n2,n3],
            [n4,n5,n6],
            [n7,n8,n9]]
-    
+        
     temp2 = [[0 for x in range(3)] for y in range(3)]
     zero=0
     ones=0
@@ -34,14 +34,14 @@ def findcenter(n1,n2,n3,n4,n5,n6,n7,n8,n9):
             
             else:
                 ones=ones+1
-        print(zero,ones)
+       # print(zero,ones)
         if(zero>ones):
             result.append('0')
         else:
             result.append('1')
 
 
-    print(result)
+    #print(result)
 
     x=''.join(result)
     s=0
@@ -50,7 +50,7 @@ def findcenter(n1,n2,n3,n4,n5,n6,n7,n8,n9):
     for i in range(0,8):
         s=s+int(x[i])*(2**(7-i))
         
-    print(s)
+    #print(s)
     
     return s
 
@@ -58,26 +58,28 @@ def findcenter(n1,n2,n3,n4,n5,n6,n7,n8,n9):
 #Read an image 
 image = cv2.imread("C:\Users\PanDa\Desktop\Sir\image1.jpg",cv2.IMREAD_COLOR)
 
-#width= np.size(image,0)
-#height= np.size(image,1)
+width= np.size(image,0)
+height= np.size(image,1)
 
-width=4
-height=4
+
+
+#width=4
+#height=4
 
 #initialize i2 array
 i2= [[0 for o in range(height+2)] for p in range(width+2)]
 mask= [[0 for x in range(3)] for y in range(3)] 
 
-for i in range(0,height):
+'''for i in range(0,height):
    for j in range(0,width):
-       print(image[i,j][0])
+       print(image[i,j][0])'''
 
 #print i2 array
 for i in range(0,height):
    for j in range(0,width):
       i2[i+1][j+1]= image[i,j][0]
-i2=np.array(i2)
-print(i2)
+#i2=np.array(i2)
+#print(i2)
 
 #Find Center Value for every i2 value
 for i in range(1,height+1):
@@ -86,9 +88,7 @@ for i in range(1,height+1):
         
         
 
-for i in range(0,height):
-   for j in range(0,width):
-       print(image[i,j][0])
+cv2.imshow("New Image",image)
 
 
 
